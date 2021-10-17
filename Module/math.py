@@ -23,6 +23,6 @@ import math as islem
 from math import * 
 
 value = factorial(7)
-value = ceil(9.8)
+value = ceil(9.8) #Sayıyı Yukarı yuvarlama.
 
 print(value)
