@@ -32,7 +32,7 @@ class Teacher(Person):
          self.branch = branch
          print("Teacher Nesnesi Üretildi.")
     
-
+    
 
 # t1 = Teacher()
 p1 = Person("Sefa","Pınar",40)
