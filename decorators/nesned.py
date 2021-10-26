@@ -25,7 +25,7 @@
 # outer(10)
 
 def factorial(number):
-    if not isinstance(num,int):
+    if not isinstance(number,int):
         raise TypeError("number must be an integer")
 
     if not number >=0:
