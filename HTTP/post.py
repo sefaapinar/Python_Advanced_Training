@@ -15,3 +15,4 @@ sonuc = response.text
 sonuc = response.json()
 
 print(sonuc)
+print(sonuc)
