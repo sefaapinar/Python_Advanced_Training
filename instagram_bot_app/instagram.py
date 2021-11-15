@@ -15,7 +15,12 @@ class Instagram:
         self.driver = webdriver.Chrome(Instagram.driver_path)
         self.username = username
         self.password = password
+        self.followers = []
 
+        self.driverProfile = webdriver.ChromeOptions()
+        self.driverProfile.add_experimental_option('prefs',{'intl.accept_languages':'en,en_US'})
+
+        self.driver = webdriver.Chrome(Instagram.driver_path, options=self.driverProfile)
 
     def signIn(self):
         self.driver.get("https://www.instagram.com/accounts/login/")
@@ -91,20 +96,55 @@ class Instagram:
         i=0
         followers = self.driver.find_element_by_class_name("PZuss").find_elements_by_tag_name("li")
         for user in followers:
-            i+=i
+            
             print(i)
             link = user.find_element_by_tag_name("a").get_attribute("href")
-            print(link)
+            self.followers.append(link)
+            i+=1
+            if i == max:
+                break
 
+        self.saveToFile(self.followers)
+
+        def saveToFile(self,followers):
+            with open("followers.txt", "w",encoding="UTF-8") as file:
+                for user in followers:
+                    file.write(user + "\n")
+    
     def followUser(self,username):
-        pass
+        self.driver.get(f"https://www.instagram.com/{username}")
+        time.sleep(2)
 
+        followButton = self.driver.find_element_by_tag_name("button")
+
+        if followButton.text =="Follow":
+            followButton.click()
+            time.sleep(2)
+        else:
+            print(f"{username} sayfasını zaten takip ediyorsunuz.")
     
     def followUsers(self,users):
-        pass
+        for user in users:
+            self.followUser(user)
 
     def unFollowUser(self,username):
-        pass
+        self.driver.get(f"https://www.instagram.com/{username}")
+
+        btn = self.driver.find_element_by_tag_name('button')
+
+
+        if btn.text == "Message":
+            self.driver.find_elements_by_tag_name('button')[1].click()
+            time.sleep(2)
+            
+            self.driver.find_element_by_css_selector('div[role=dialog] button').click()
+
+        else:
+            print(f"{username} sayfasını zaten takip etmiyorsunuz.")
+
+    def unFollowUers(self,users):
+        for user in users:
+            self.unFollowUser(user)
 
     def __del__(self):
         time.sleep(2)
@@ -113,8 +153,10 @@ class Instagram:
 
 
 app = Instagram(username,password)
-
 app.signIn()
-app.getFollowers(50)
-app.followUser('abc')
-app.unFollowUser('abc')
+# app.getFollowers(50)
+# app.followUsers("kodevreni","yazilimataolyesi")
+# app.unFollowUser('kodevreni')
+
+
+# kod evreni, yazilimataolyesi
