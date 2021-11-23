@@ -25,4 +25,11 @@ result = np.random.randint(10,50,15).reshape(3,5) # dizi yapmak.
 # print(rowTotal)
 # print(colTotal)
 
+arr = np.arange(10,20)
+print(arr)
+
+result = arr[0:3]
+
+result = arr[::-1]
+
 print(result)
