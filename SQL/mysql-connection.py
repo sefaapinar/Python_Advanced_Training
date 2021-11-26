@@ -8,3 +8,12 @@ mydb = mysql.connector.connect(
     database="node-app"
 )
   
+mycursor = mydb.cursor()
+
+# mycursor.execute("CREATE DATABASE mydatabase") # database olusturma islemi
+
+# mycursor.execute("CREATE TABLE customers (name VARCHAR(255), address VARCHAR(255))") 
+
+
+
+print(mydb)
