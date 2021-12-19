@@ -10,6 +10,7 @@ mycollection = mydb["products"]
 
 
 #find_one # tek kayıt kullancaksak
+#find çok kayıt seçmede kullanılır.
 
 # result = mycollection.find_one()
 # print(result)
