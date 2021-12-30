@@ -4,12 +4,12 @@ from .models import Blog, Category
 
 
 class BlogAdmin(admin.ModelAdmin):
-    list_display = ("title","is_active","is_home")
-    list_editable = ("is_active","is_home")
+    list_display = ("title","is_active","is_home","slug",)
+    list_editable = ("is_active","is_home",)
     search_fields = ("title","description",)
-    #readonly_fields = ("description",)
+    readonly_fields = ("slug",)
     #SlugField kullanımı:
-    
+
 
 
 
