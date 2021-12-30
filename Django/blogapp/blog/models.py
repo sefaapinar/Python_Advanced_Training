@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
-from ckeditor.fields import RichTextField
+#from ckeditor.fields import RichTextField
 
 #blogs/1.jpg
 
