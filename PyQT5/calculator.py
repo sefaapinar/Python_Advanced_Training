@@ -81,6 +81,15 @@ class MainForm(QMainWindow):
         self.lbl_sonuc.setText('Sonuç :'+ str(result))
 
 
+    # def hesaplama(self):
+    #     sender = self.sender()
+    #     result = 0
+    #     if sender == 'Toplama'
+    #         result = int(self.txt_sayi1.text()) + int(self.txt_sayi2.text())
+    #     else:
+
+
+
         
         
         
