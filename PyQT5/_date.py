@@ -1,6 +1,6 @@
 import sys
 from PyQt5 import QtWidgets
-from _dateForm import Ui_MainWindow
+from _dateform import Ui_MainWindow
 from PyQt5.QtCore import QDate, QTime, QDateTime
 
 class myApp(QtWidgets.QMainWindow):
